@@ -22,15 +22,9 @@
 	du magasin</h1>
 <body class="bg-light">
 	<div class="container mt-3">
-		<button type="button" class="btn btn-outline-success">
-			<a href="http://localhost:8080/supermarche/clients">Clients</a>
-		</button>
-		<button type="button" class="btn btn-outline-warning">
-			<a href="http://localhost:8080/supermarche/commandes">Commandes</a>
-		</button>
-		<button type="button" class="btn btn-outline-info">
-			<a href="http://localhost:8080/supermarche/produits">Produits</a>
-		</button>
+		<button id="monButtonClient" type="submit" class="btn btn-outline-success">Clients</button>
+		<button id="monButtonCommande" type="submit" class="btn btn-outline-warning">Commandes</button>
+		<button button id="monButtonProduit" type="submit" class="btn btn-outline-info">Produits</button>
 	</div>
 	<div class="container mt-3">
 
@@ -135,6 +129,19 @@
 
 	</div>
 
+<script type="text/javascript">
+    document.getElementById("monButtonClient").onclick = function () {
+        location.href = "clients";
+    };
+    
+    document.getElementById("monButtonCommande").onclick = function () {
+        location.href = "commandes";
+    };
+    
+    document.getElementById("monButtonProduit").onclick = function () {
+        location.href = "produits";
+    };
+</script>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
