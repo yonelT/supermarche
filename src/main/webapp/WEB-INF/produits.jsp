@@ -39,6 +39,9 @@
 								<!-- bouton de la modal -->
 								<button type="button" class="btn btn-info" data-toggle="modal"
 									data-target="#maModalAjoutProduit">Ajouter un produit</button>
+									
+									<button type="button" class="btn btn-danger" data-toggle="modal"
+									data-target="#maModalSupprimerProduit">Supprimer un produit</button>
 							</div>
 						</h3>
 				</div>
@@ -107,6 +110,38 @@
 		  </div>
 		</div>
 	  </div>
+	  
+	  <!-- Modal de suppression commande -->
+		<div class="modal fade" id="maModalSupprimerProduit" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalCenterTitleSupprimer"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Supprimer un	produit</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form method="POST" class="form-horizontal" action="/supermarche/produits">
+
+							<div class="form-group">
+								<label class="col-md-3" for="leNom">Numéro à supprimer</label> <input
+									class="col-md-5" type="text" id="numero_produit_suppr" name="numero_produit_suppr" required>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-danger">Valider</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Fermer</button>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 	</div>

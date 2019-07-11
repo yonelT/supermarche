@@ -40,12 +40,17 @@ public class WebServLet_Commande extends HttpServlet {
 		ConnexionUtils monConnecteur = new ConnexionUtils();
 
 		String query1 = null;
-
+		if (req.getParameter("reference_commande") == null) {
+		int idSuppr = Integer.parseInt(req.getParameter("id_commande_suppr"));
+		String query2 = null;
+		query2 = "delete from commande where commande.id=" + idSuppr + ";";
+		monConnecteur.modifierUneChoseEnBase(query2);	
+		} else {
 		String referenceCommande = req.getParameter("reference_commande");
 
 		query1 = "INSERT INTO COMMANDE(reference) VALUES (\"" + referenceCommande + "\");";
-		monConnecteur.ajouterUneChoseEnBase(query1);
-
+		monConnecteur.modifierUneChoseEnBase(query1);
+		}
 		/* Réafficher la page - meme partie que le doGet */
 		String query = "select * from commande";
 		maListeCommande = monConnecteur.getCommandesEnBase(query);

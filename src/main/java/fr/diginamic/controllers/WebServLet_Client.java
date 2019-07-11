@@ -39,16 +39,24 @@ public class WebServLet_Client extends HttpServlet{
 		
 		String query1 = null;
 		String query2 = "select * from client";
+		ConnexionUtils monConnecteur = new ConnexionUtils();
+		
+		if (req.getParameter("le_nom_client") == null) {
+			int idClientSuppr = Integer.parseInt(req.getParameter("id_client_suppr"));
+			String query3 = null;
+			query3 = "delete from client where client.id=" + idClientSuppr + ";";
+			monConnecteur.modifierUneChoseEnBase(query3);	
+		} else {
 
 		String nomClient = req.getParameter("le_nom_client");
 		String prenomClient = req.getParameter("le_prenom_client");
 		int ageClient = Integer.parseInt(req.getParameter("lage_client"));
 		String adresseClient = req.getParameter("ladresse_client");
 		
-		ConnexionUtils monConnecteur = new ConnexionUtils();
-		
-		query1 = "INSERT INTO CLIENT(nom_client, prenom_client, age_client, adresse_client) VALUES (\"" + nomClient + "\",\"" + prenomClient + "\",\"" + ageClient +  "\",\"" + adresseClient + "\");";                                        
-		monConnecteur.ajouterUneChoseEnBase(query1);
+			query1 = "INSERT INTO CLIENT(nom_client, prenom_client, age_client, adresse_client) VALUES (\"" + nomClient + "\",\"" + prenomClient + "\",\"" + ageClient +  "\",\"" + adresseClient + "\");";                                        
+			monConnecteur.modifierUneChoseEnBase(query1);
+				
+		}
 		
 		/* Réafficher la page - meme partie que le doGet */
 		maListeClient = monConnecteur.getClientsEnBase(query2);

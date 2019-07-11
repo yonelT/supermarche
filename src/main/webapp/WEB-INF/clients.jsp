@@ -36,9 +36,12 @@
 						<h3>
 							Clients
 							<div class="float-right">
-								<!-- bouton de la modal -->
+								<!-- bouton de la modal ajout -->
 								<button type="button" class="btn btn-success" data-toggle="modal"
 									data-target="#maModalAjoutClient">Ajouter un client</button>
+									<!-- bouton de la modal supprimer -->
+								<button type="button" class="btn btn-danger" data-toggle="modal"
+									data-target="#maModalSupprimerClient">Supprimer un client</button>
 						</h3>
 				</div>
 				<div class="card-body">
@@ -120,6 +123,39 @@
 						<button type="submit" class="btn btn-info">Valider</button>
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Close</button>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Modal de suppression client -->
+		<div class="modal fade" id="maModalSupprimerClient" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalCenterTitleSupprimer"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Supprimer un
+							client</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form method="POST" class="form-horizontal" action="/supermarche/clients">
+
+							<div class="form-group">
+								<label class="col-md-3" for="leNom">Identifiant à supprimer</label> <input
+									class="col-md-5" type="text" id="id_client_suppr" name="id_client_suppr" required>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-danger">Valider</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Fermer</button>
 
 						</form>
 					</div>

@@ -158,7 +158,7 @@ public class ConnexionUtils {
 		}
 	}
 
-	public void ajouterUneChoseEnBase(String query) {
+	public void modifierUneChoseEnBase(String query) {
 
 		try {
 

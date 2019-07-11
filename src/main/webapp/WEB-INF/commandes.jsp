@@ -39,6 +39,9 @@
 								<!-- bouton de la modal -->
 								<button type="button" class="btn btn-warning" data-toggle="modal"
 									data-target="#maModalAjoutCommande">Ajouter une commande</button>
+									
+									<button type="button" class="btn btn-danger" data-toggle="modal"
+									data-target="#maModalSupprimerCommande">Supprimer une commande</button>
 							</div>
 						</h3>
 				</div>
@@ -99,7 +102,7 @@
 			</div>
 			<div class="modal-footer">
 					<button type="submit" class="btn btn-info">Valider</button>
-			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
 			  
 			</form>
 			</div>
@@ -109,7 +112,39 @@
 
 
 	</div>
+<!-- Modal de suppression commande -->
+		<div class="modal fade" id="maModalSupprimerCommande" tabindex="-1"
+			role="dialog" aria-labelledby="exampleModalCenterTitleSupprimer"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Supprimer une
+							commande</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form method="POST" class="form-horizontal" action="/supermarche/commandes">
 
+							<div class="form-group">
+								<label class="col-md-3" for="leNom">Identifiant à supprimer</label> <input
+									class="col-md-5" type="text" id="id_commande_suppr" name="id_commande_suppr" required>
+							</div>
+					</div>
+					<div class="modal-footer">
+						<button type="submit" class="btn btn-danger">Valider</button>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 
 <script type="text/javascript">
     document.getElementById("monButtonClient").onclick = function () {

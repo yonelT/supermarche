@@ -40,12 +40,18 @@ public class WebServLet_Produit extends HttpServlet {
 		List<Produit> maListeProduit = new ArrayList<>();
 		ConnexionUtils monConnecteur = new ConnexionUtils();
 		
+		if (req.getParameter("libelle_produit") == null) {
+			int numeroProduitSuppr = Integer.parseInt(req.getParameter("numero_produit_suppr"));
+			String query2 = null;
+			query2 = "delete from produit where produit.numero=" + numeroProduitSuppr + ";";
+			monConnecteur.modifierUneChoseEnBase(query2);	
+		} else {
 		String query1 = null;
 		String nouveauLibelle = req.getParameter("libelle_produit");
 
 		query1 = "INSERT INTO PRODUIT(libelle) VALUES (\"" + nouveauLibelle + "\");";
-		monConnecteur.ajouterUneChoseEnBase(query1);
-
+		monConnecteur.modifierUneChoseEnBase(query1);
+		}
 		/* Réafficher la page - meme partie que le doGet */
 		String query = "select * from produit";
 		maListeProduit = monConnecteur.getProduitsEnBase(query);
